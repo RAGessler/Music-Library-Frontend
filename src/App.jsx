@@ -34,7 +34,7 @@ function App() {
         <DisplayMusic parentSongs = {songs}/>
       </div>
       <div>
-        <AddSongForm netSong={AddSongForm} />
+        <AddSongForm addSong={createSong} />
       </div>
     </div>
   );

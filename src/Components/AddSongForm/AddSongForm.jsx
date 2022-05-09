@@ -50,6 +50,7 @@ const AddSongForm = (props) => {
                 <label>Likes</label>
                 <input type="number" value={likes} onChange={(event) => setLikes(event.target.value)} />
             </div>
+            <button type='submit'>Add Song</button>
         </form>
     )
 }
