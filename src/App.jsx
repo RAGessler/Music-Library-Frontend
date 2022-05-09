@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic'
+import AddSongForm from './Components/AddSongForm/AddSongForm';
 import './App.css';
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
     <div className="App">
       <div>
         <DisplayMusic parentSongs = {songs}/>
+      </div>
+      <div>
+        <AddSongForm netSong={AddSongForm} />
       </div>
     </div>
   );

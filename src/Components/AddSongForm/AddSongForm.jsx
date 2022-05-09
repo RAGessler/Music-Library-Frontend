@@ -40,7 +40,7 @@ const AddSongForm = (props) => {
             </div>
             <div>
                 <label>Release Date</label>
-                <input type="date" value={release_date} onChange={(event) => setRelease_Date(toString(event.target.value))} />
+                <input type="date" value={release_date} onChange={(event) => setRelease_Date(event.target.value)} />
             </div>
             <div>
                 <label>Genre</label>
@@ -53,3 +53,4 @@ const AddSongForm = (props) => {
         </form>
     )
 }
+export default AddSongForm;
