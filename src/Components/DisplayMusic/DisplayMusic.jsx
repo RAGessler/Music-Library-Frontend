@@ -3,6 +3,7 @@ const DisplayMusic = (props) => {
         <table className="table">
             <thead>
                 <tr>
+                    <th>Entry</th>
                     <th>Title</th>
                     <th>Artist</th>
                     <th>Album</th>
