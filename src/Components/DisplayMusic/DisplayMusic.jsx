@@ -16,7 +16,7 @@ const DisplayMusic = (props) => {
                 {props.parentSongs.map((song, element) => {
                     return(
                         <tr key={element}>
-                            <td>{song.id}</td>
+                            <td>{element +1}</td>
                             <td>{song.title}</td>
                             <td>{song.artist}</td>
                             <td>{song.album}</td>
