@@ -3,6 +3,7 @@ import axios from 'axios';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic'
 import AddSongForm from './Components/AddSongForm/AddSongForm';
 import './App.css';
+import SearchBar from './Components/SearchBar/SearchBar';
 
 function App() {
 
@@ -26,7 +27,14 @@ function App() {
   }
 
   async function filterMusic(searchTerm){
-    let response = await axios.get('http://127.0.0.1:8000/api/music/')
+    let response = await axios.get('http://127.0.0.1:8000/api/music/').filter(function(element){
+      if (element.includes(`${searchTerm}`)){
+        return true
+      }
+      else{
+        return false
+      }})
+      setSongs(response.data)
   }
 
 
@@ -39,6 +47,9 @@ function App() {
       </div>
       <div>
         <AddSongForm addSong={createSong} />
+      </div>
+      <div>
+        <SearchBar submitSearch={filterMusic} />
       </div>
     </div>
   );
