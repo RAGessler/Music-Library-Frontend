@@ -9,16 +9,17 @@ function App() {
 
   const [songs, setSongs] = useState([]);
   
-  useEffect(() => {
-    getAllSongs();
-  }, [])
-
+  
   async function getAllSongs(){
     let response  = await axios.get('http://127.0.0.1:8000/api/music/');
     setSongs(response.data)
     console.log(songs)
   }
-
+  
+  useEffect(() => {
+    getAllSongs();
+  }, [])
+  
   async function createSong(newSong){
     let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
     if(response.status === 201){
@@ -26,29 +27,33 @@ function App() {
     }
   }
 
-  async function filterMusic(searchTerm){
-    let unfilteredMusic = await axios.get('http://127.0.0.1:8000/api/music/')
-    let filteredMusic = unfilteredMusic.filter(function(element){
-      if (element.includes(searchTerm)){
-        return true
-      }
-      else{
-        return false
-      }})
-      setSongs(response.data)
-  }
-
-  // function filterMusic(searchTerm){
-  //   let searchString = String(searchTerm)
-  //   let filteredMusic = songs.filter(function(element){
-  //     if (element.includes(searchString)){
-  //       return true;
+  // async function filterMusic(searchTerm){
+  //   let unfilteredMusic = await axios.get('http://127.0.0.1:8000/api/music/')
+  //   console.log(unfilteredMusic)
+  //   let filteredMusic = unfilteredMusic.filter(function(element){
+  //     if (element.includes(searchTerm)){
+  //       return true
   //     }
   //     else{
-  //       return false;
+  //       return false
   //     }})
-  //     console.log(filteredMusic)
   // }
+
+  function filterMusic(searchTerm){
+    let searchString = String(searchTerm)
+    let filteredMusic = songs.filter(function(element){
+      if (element.title.includes(searchTerm) ||
+        element.artist.includes(searchTerm) ||
+        element.album.includes(searchTerm) ||
+        element.release_date.includes(searchTerm) ||
+        element.genre.includes(searchTerm)){
+        return true;
+      }
+      else{
+        return false;
+      }})
+      setSongs(filteredMusic)
+  }
 
 
 
