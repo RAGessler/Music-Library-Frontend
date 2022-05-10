@@ -26,28 +26,29 @@ function App() {
     }
   }
 
-  // async function filterMusic(searchTerm){
-  //   let response = await axios.get('http://127.0.0.1:8000/api/music/').filter(function(element){
-  //     if (element.includes(`${searchTerm}`)){
-  //       return true
-  //     }
-  //     else{
-  //       return false
-  //     }})
-  //     setSongs(response.data)
-  // }
-
-  function filterMusic(searchTerm){
-    let searchString = String(searchTerm)
-    let filteredMusic = songs.filter(function(element){
-      if (element.includes(searchString)){
-        return true;
+  async function filterMusic(searchTerm){
+    let unfilteredMusic = await axios.get('http://127.0.0.1:8000/api/music/')
+    let filteredMusic = unfilteredMusic.filter(function(element){
+      if (element.includes(searchTerm)){
+        return true
       }
       else{
-        return false;
+        return false
       }})
-      console.log(filteredMusic)
+      setSongs(response.data)
   }
+
+  // function filterMusic(searchTerm){
+  //   let searchString = String(searchTerm)
+  //   let filteredMusic = songs.filter(function(element){
+  //     if (element.includes(searchString)){
+  //       return true;
+  //     }
+  //     else{
+  //       return false;
+  //     }})
+  //     console.log(filteredMusic)
+  // }
 
 
 
