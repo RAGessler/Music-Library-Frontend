@@ -1,0 +1,9 @@
+.hero-text{
+    color: aliceblue;
+    margin: auto;
+}
+.search-form{
+    position: absolute;
+    right: 1em;
+    margin-top: 2em;
+}

@@ -1,15 +1,15 @@
 const DisplayMusic = (props) => {
     return (
-        <table className="table">
-            <thead>
+        <table className="table table-striped table-hover"  style={{textAlign: 'center'}}>
+            <thead className="table-dark">
                 <tr>
-                    <th>Entry</th>
-                    <th>Title</th>
-                    <th>Artist</th>
-                    <th>Album</th>
-                    <th>Release Date</th>
-                    <th>Genre</th>
-                    <th>Likes</th>
+                    <th scope="col">Entry</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Artist</th>
+                    <th scope="col">Album</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Likes</th>
                 </tr>
             </thead>
             <tbody>

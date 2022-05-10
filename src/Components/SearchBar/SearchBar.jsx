@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './SearchBar.css'
 const SearchBar = (props) => {
     const [searchTerm, setSearchTerm] = useState('')
     function handleSubmit(event){
@@ -9,13 +10,17 @@ const SearchBar = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Input Search Term</label>
-                <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
-            </div>
-            <button type='submit'>Search</button>
-        </form>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark' >
+            <h1 className='hero-text'>Music Library</h1>
+            <form className='search-form' onSubmit={handleSubmit}>
+                <div className='input-group mb-3'>
+                    <input className='form-control' placeholder='Search Keywords' type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+                    <div className='input-group-append'>
+                        <button className='btn btn-outline-secondary' type='submit'>Search</button>
+                    </div>
+                </div>
+            </form>
+        </nav>
     )
 }
 export default SearchBar;

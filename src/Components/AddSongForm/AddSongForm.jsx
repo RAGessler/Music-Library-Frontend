@@ -25,9 +25,9 @@ const AddSongForm = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className='d-flex' onSubmit={handleSubmit}>
             <div>
-                <label>Title</label>
+                <label className='sr-only' htmlFor='songTitle'>Title</label>
                 <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
             </div>
             <div>
@@ -39,10 +39,6 @@ const AddSongForm = (props) => {
                 <input type="text" value={album} onChange={(event) => setAlbum(event.target.value)} />
             </div>
             <div>
-                <label>Release Date</label>
-                <input type="date" value={release_date} onChange={(event) => setRelease_Date(event.target.value)} />
-            </div>
-            <div>
                 <label>Genre</label>
                 <input type="text" value={genre} onChange={(event) => setGenre(event.target.value)} />
             </div>
@@ -50,7 +46,11 @@ const AddSongForm = (props) => {
                 <label>Likes</label>
                 <input type="number" value={likes} onChange={(event) => setLikes(event.target.value)} />
             </div>
-            <button type='submit'>Add Song</button>
+            <div>
+                <label>Release Date</label>
+                <input type="date" value={release_date} onChange={(event) => setRelease_Date(event.target.value)} />
+            </div>
+            <button className='btn btn-primary' type='submit'>Add Song</button>
         </form>
     )
 }

@@ -19,25 +19,13 @@ function App() {
   useEffect(() => {
     getAllSongs();
   }, [])
-  
+
   async function createSong(newSong){
     let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong);
     if(response.status === 201){
       await getAllSongs();
     }
   }
-
-  // async function filterMusic(searchTerm){
-  //   let unfilteredMusic = await axios.get('http://127.0.0.1:8000/api/music/')
-  //   console.log(unfilteredMusic)
-  //   let filteredMusic = unfilteredMusic.filter(function(element){
-  //     if (element.includes(searchTerm)){
-  //       return true
-  //     }
-  //     else{
-  //       return false
-  //     }})
-  // }
 
   function filterMusic(searchTerm){
     let searchString = String(searchTerm)
@@ -59,15 +47,15 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="app" style={{margin:'0 auto'}}>
+      <div>
+        <SearchBar submitSearch={filterMusic} />
+      </div>
       <div>
         <DisplayMusic parentSongs = {songs}/>
       </div>
-      <div>
+      <div className='add-song'>
         <AddSongForm addSong={createSong} />
-      </div>
-      <div>
-        <SearchBar submitSearch={filterMusic} />
       </div>
     </div>
   );
