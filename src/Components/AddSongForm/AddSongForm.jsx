@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import './AddSongForm.css'
 
 
 const AddSongForm = (props) => {
@@ -26,27 +26,27 @@ const AddSongForm = (props) => {
 
     return(
         <form className='d-flex' onSubmit={handleSubmit}>
-            <div>
+            <div className='search-box'>
                 <label className='sr-only' htmlFor='songTitle'>Title</label>
                 <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
             </div>
-            <div>
+            <div className='search-box'>
                 <label>Artist</label>
                 <input type="text" value={artist} onChange={(event) => setArtist(event.target.value)} />
             </div>
-            <div>
+            <div className='search-box'>
                 <label>Album</label>
                 <input type="text" value={album} onChange={(event) => setAlbum(event.target.value)} />
             </div>
-            <div>
+            <div className='search-box'>
                 <label>Genre</label>
                 <input type="text" value={genre} onChange={(event) => setGenre(event.target.value)} />
             </div>
-            <div>
+            <div className='search-box'>
                 <label>Likes</label>
                 <input type="number" value={likes} onChange={(event) => setLikes(event.target.value)} />
             </div>
-            <div>
+            <div className='search-box'>
                 <label>Release Date</label>
                 <input type="date" value={release_date} onChange={(event) => setRelease_Date(event.target.value)} />
             </div>
